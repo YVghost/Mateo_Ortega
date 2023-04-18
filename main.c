@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "menu.h"
 
 int main(int argc, char *argv[])
 {
@@ -99,89 +100,4 @@ int main(int argc, char *argv[])
     //
 
     return 0;
-}
-
-int MenuPrincipal()
-{
-    int opcion1;
-    printf("1) Facturar Producto\n");
-    printf("2) Imprimir Factura\n");
-    printf("3) Salir\n");
-    printf("Seleccione una opción: ");
-    scanf("%d", &opcion1);
-
-    return opcion1;
-}
-
-char MenuProducto()
-{
-    char opcion2;
-
-    printf("Escoja los productos que desea facturar:\n");
-    printf("a) Llantas (Precio: $150)\n");
-    printf("b) Kit Pastillas de freno (Precio: $55)\n");
-    printf("c) Kit de embrague (Precio: $180)\n");
-    printf("d) Faro (Precio: $70)\n");
-    printf("e) Radiador (Precio: $120)\n");
-
-    scanf("%s", &opcion2);
-    return opcion2;
-}
-
-float AplicarDescuento(float subtotal)
-{
-    float subtotal1;
-
-    if (subtotal > 100 && subtotal <= 500)
-    {
-        printf("Se aplica un decuento del 5 porciento\n");
-        subtotal1 = subtotal * 0.95;
-    }
-    else if (subtotal > 500 && subtotal <= 1000)
-    {
-        printf("Se aplica un decuento del 7 porciento\n");
-        subtotal1 = subtotal * 0.93;
-    }
-    else if (subtotal > 1000)
-    {
-        printf("Se aplica un decuento del 10 porciento\n");
-        subtotal1 = subtotal * 0.90;
-    }
-    else
-    {
-        printf("No se aplica descuento dado que el mónto no alcanzo el mínimo necesario\n");
-    }
-
-    return subtotal1;
-}
-
-void ImprimirFactura(float numa, float numb, float numc, float numd, float nume,
-                     float prca, float prcb, float prcc, float prcd, float prce,
-                     float tota, float totb, float totc, float totd, float tote,
-                     char nombre[50], char cedula[20])
-{
-    printf("*********   FACTURA ************\n");
-    printf("Nombre: %s\n", nombre);
-    printf("Nro. cédula: %s\n", cedula);
-    printf("Producto                Número              valor           total\n");
-    if (numa != 0)
-    {
-        printf("Llantas                 %.2f                %.2f             %.2f\n", numa, prca, tota);
-    }
-    if (numb != 0)
-    {
-        printf("Kit Pastillas de freno  %.2f                %.2f             %.2f\n", numb, prcb, totb);
-    }
-    if (numc != 0)
-    {
-        printf("Kit de embrague         %.2f                %.2f             %.2f\n", numc, prcc, totc);
-    }
-    if (numd != 0)
-    {
-        printf("Faro                    %.2f                %.2f             %.2f\n", numd, prcd, totd);
-    }
-    if (nume != 0)
-    {
-        printf("Radiador                %.2f                %.2f             %.2f\n", nume, prce, tote);
-    }
 }
